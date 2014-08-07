@@ -14,50 +14,30 @@ widgets     : [mathjax]            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 ---
 
-## Notation
+## Probability
 
-- The **sample space**, $\Omega$, is the collection of possible outcomes of an experiment
-  - Example: die roll $\Omega = \{1,2,3,4,5,6\}$
-- An **event**, say $E$, is a subset of $\Omega$ 
-  - Example: die roll is even $E = \{2,4,6\}$
-- An **elementary** or **simple** event is a particular result
-  of an experiment
-  - Example: die roll is a four, $\omega = 4$
-- $\emptyset$ is called the **null event** or the **empty set**
+- In these slides we will cover the basics of probability at low enough level
+to have a basic understanding for the rest of the series
+- For a more complete treatment see the class Mathematical Biostatistics Boot Camp 1
+    - Youtube: www.youtube.com/playlist?list=PLpl-gQkQivXhk6qSyiNj51qamjAtZISJ-
+    - Coursera: www.coursera.org/course/biostats
+    - Git: http://github.com/bcaffo/Caffo-Coursera
 
----
-
-## Interpretation of set operations
-
-Normal set operations have particular interpretations in this setting
-
-1. $\omega \in E$ implies that $E$ occurs when $\omega$ occurs
-2. $\omega \not\in E$ implies that $E$ does not occur when $\omega$ occurs
-3. $E \subset F$ implies that the occurrence of $E$ implies the occurrence of $F$
-4. $E \cap F$  implies the event that both $E$ and $F$ occur
-5. $E \cup F$ implies the event that at least one of $E$ or $F$ occur
-6. $E \cap F=\emptyset$ means that $E$ and $F$ are **mutually exclusive**, or cannot both occur
-7. $E^c$ or $\bar E$ is the event that $E$ does not occur
 
 ---
 
 ## Probability
 
-A **probability measure**, $P$, is a function from the collection of possible events so that the following hold
+Given a random experiment (say rolling a die) a probability measure is a population quantity
+that summarizes the randomness.
 
-1. For an event $E\subset \Omega$, $0 \leq P(E) \leq 1$
-2. $P(\Omega) = 1$
-3. If $E_1$ and $E_2$ are mutually exclusive events
-  $P(E_1 \cup E_2) = P(E_1) + P(E_2)$.
+Specifically, probability takes a possible outcome from the expertiment and assigns it a number
+between 0 and 1 so that the probability that something occurs is 1 (the die must be rolled)
+and so that the probability of the union of any two sets of outcomes that have nothing in common
+is the sum of their respective probabilities.
 
-Part 3 of the definition implies **finite additivity**
 
-$$
-P(\cup_{i=1}^n A_i) = \sum_{i=1}^n P(A_i)
-$$
-where the $\{A_i\}$ are mutually exclusive. (Note a more general version of
-additivity is used in advanced classes.)
-
+The Russian mathematician Kolmogorov formalized these rules.
 
 ---
 
@@ -191,7 +171,7 @@ y <- c(0, 0, 2, 0, 0)
 plot(x, y, lwd = 3, frame = FALSE, type = "l")
 ```
 
-![plot of chunk unnamed-chunk-1](assets/fig/unnamed-chunk-1.png) 
+<img src="assets/fig/unnamed-chunk-1.png" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" style="display: block; margin: auto;" />
 
 
 ---
@@ -200,7 +180,7 @@ plot(x, y, lwd = 3, frame = FALSE, type = "l")
 
 What is the probability that 75% or fewer of calls get addressed?
 
-![plot of chunk unnamed-chunk-2](assets/fig/unnamed-chunk-2.png) 
+<img src="assets/fig/unnamed-chunk-2.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" />
 
 
 ---
@@ -308,4 +288,3 @@ qbeta(0.5, 2, 1)
   discussed is the **population median**.
 - A probability model connects the data to the population using assumptions.
 - Therefore the median we're discussing is the **estimand**, the sample median will be the **estimator**
-
